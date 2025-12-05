@@ -149,6 +149,61 @@ PORT=9090 mvn spring-boot:run
 - La imagen Docker usa multi-stage build para optimizar el tamaño
 - El deployment está configurado para 2 pods como se requiere
 
+## Operaciones CRUD Dentro del Contenedor
+
+Para realizar operaciones CRUD accediendo al contenedor usando `kubectl exec`:
+
+### 1. Acceder al contenedor
+
+```bash
+# Obtener el nombre del pod
+kubectl get pods -n angie-chacon
+
+# Acceder al contenedor
+kubectl exec -it POD_NAME -n angie-chacon -- sh
+```
+
+### 2. Realizar operaciones CRUD
+
+Dentro del contenedor:
+
+```bash
+# CREATE
+curl -X POST http://angie-chacon-service:8080/api/productos \
+  -H "Content-Type: application/json" \
+  -d '{"nombre":"Producto Test","descripcion":"Descripción","precio":99.99,"stock":10}'
+
+# READ - Listar
+curl http://angie-chacon-service:8080/api/productos
+
+# READ - Por ID
+curl http://angie-chacon-service:8080/api/productos/1
+
+# UPDATE
+curl -X PUT http://angie-chacon-service:8080/api/productos/1 \
+  -H "Content-Type: application/json" \
+  -d '{"nombre":"Producto Actualizado","descripcion":"Nueva descripción","precio":89.99,"stock":5}'
+
+# DELETE
+curl -X DELETE http://angie-chacon-service:8080/api/productos/1
+```
+
+### 3. Ver los logs de las operaciones
+
+En otra terminal:
+
+```bash
+# Ver logs en tiempo real
+kubectl logs -f POD_NAME -n angie-chacon
+
+# O ver logs de todos los pods
+kubectl logs -f deployment/angie-chacon-deployment -n angie-chacon
+```
+
+**Los logs mostrarán todas las operaciones CRUD realizadas con detalles completos.**
+
+📖 Ver la guía completa en: `CRUD_DENTRO_CONTENEDOR.md`
+
 ## Archivos de Entrega
 
 - ✅ `02-angie-chacon-namespace.yml`
