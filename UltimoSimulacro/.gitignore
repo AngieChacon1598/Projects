@@ -1,0 +1,58 @@
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE - IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# IDE - Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# IDE - VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Docker (no incluir imágenes, solo el código)
+# Las imágenes Docker se construyen, no se guardan en Git
+
+# Archivos temporales
+*.tmp
+*.bak
+*.swp
+*~
+
+# Variables de entorno
+.env
+.env.local
+
+# Archivos de compilación
+*.class
+*.jar
+!target/*.jar
+
+# Archivos de prueba
+test-output/
+.coverage
+
