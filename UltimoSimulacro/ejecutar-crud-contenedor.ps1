@@ -74,3 +74,5 @@ Write-Host ""
 Write-Host "Para ver los logs, ejecuta en otra terminal:" -ForegroundColor Yellow
 Write-Host "kubectl logs -f $PodName -n $namespace" -ForegroundColor White
 
+
+

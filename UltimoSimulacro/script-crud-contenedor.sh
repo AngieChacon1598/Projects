@@ -91,3 +91,5 @@ echo "OPERACIONES CRUD COMPLETADAS"
 echo "=========================================="
 echo "Revisa los logs con: kubectl logs -f POD_NAME -n angie-chacon"
 
+
+
